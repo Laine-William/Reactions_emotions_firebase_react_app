@@ -42,7 +42,7 @@ const End = () => {
         try {
 
             const querySnapshot = await getDoc(doc(db, "FilmFaceDetection", "FilmName"));
-
+            
             setFilmTitle(querySnapshot['_document']['data']['value']['mapValue']['fields']['title']['stringValue']);
             
             setNameEmotion(querySnapshot['_document']['data']['value']['mapValue']['fields']['expression']['stringValue']);
@@ -59,8 +59,6 @@ const End = () => {
         
             return icons[nameEmotion];
     };
-
-    console.log(filmTitle);
 
     return (
 
