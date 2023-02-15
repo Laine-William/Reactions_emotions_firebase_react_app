@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 
 const End = () => {
 
-    const [filmTitle, setFilmTitle] = useState ();
+    const [filmName, setFilmName] = useState ();
 
     const [valueEmotion, setValueEmotion] = useState ();
 
@@ -43,7 +43,7 @@ const End = () => {
 
             const querySnapshot = await getDoc(doc(db, "FilmFaceDetection", "FilmName"));
             
-            setFilmTitle(querySnapshot['_document']['data']['value']['mapValue']['fields']['title']['stringValue']);
+            setFilmName(querySnapshot['_document']['data']['value']['mapValue']['fields']['title']['stringValue']);
             
             setNameEmotion(querySnapshot['_document']['data']['value']['mapValue']['fields']['expression']['stringValue']);
             
@@ -68,7 +68,7 @@ const End = () => {
                 &#128552; : 8'25" / &#128533; : 4'48" / &#128512; : 2'12"
             </p>
             
-            <DataProgressBarSession title={filmTitle} 
+            <DataProgressBarSession title={filmName} 
                                     valueEmotion={valueEmotion} 
                                     icon={getIconName(nameEmotion)} />
 
