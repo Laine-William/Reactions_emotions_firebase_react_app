@@ -40,8 +40,8 @@ const End = () => {
     const getDocs = async () => {
 
         try {
-            
-            const querySnapshot = await getDoc(doc(db, "filmName", "Extrait : Alien, le huitième passager"));
+
+            const querySnapshot = await getDoc(doc(db, "FilmFaceDetection", "FilmName"));
 
             setFilmTitle(querySnapshot['_document']['data']['value']['mapValue']['fields']['title']['stringValue']);
             
