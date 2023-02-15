@@ -8,8 +8,7 @@ const firebaseConfig = {
     projectId: "databasefacedetection",
     storageBucket: "databasefacedetection.appspot.com",
     messagingSenderId: "518518954682",
-    appId: "1:518518954682:web:884c885f8fea008a654083",
-    measurementId: "G-ZNEJ898MEY"
+    appId: "1:518518954682:web:884c885f8fea008a654083"
 };
 
 const app = initializeApp(firebaseConfig);
