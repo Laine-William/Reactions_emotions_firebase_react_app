@@ -10,21 +10,21 @@ const DataProgressBarSession = (props) => {
     
                 <ol className="data-resume">
                     <li>
-                        <span>&#128552; :</span>
+                        <span>{props.icon}</span>
                     
-                        <progress id="file" max="100" value="70"> 70% </progress>
+                        <progress id="file" max="100" value={props.maximumValueEmotion * 100}>{props.maximumValueEmotion * 100} % </progress>
                     </li>
                 
                     <li>
-                        <span>&#128533; :</span>
+                        <span>{props.icon}</span>
                         
-                        <progress id="file" max="100" value="30"> 30% </progress>
+                        <progress id="file" max="100" value={props.intermediaryValueEmotion * 100}>{props.intermediaryValueEmotion * 100} % </progress>
                     </li>
                 
                     <li>
-                        <span>&#128512; :</span>
+                        <span>{props.icon}</span>
                     
-                        <progress id="file" max="100" value="10"> 10% </progress>
+                        <progress id="file" max="100" value={props.minimumValueEmotion * 100}>{props.minimumValueEmotion * 100} %</progress>
                     </li>
                 </ol>
             </div>
