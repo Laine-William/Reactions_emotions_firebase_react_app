@@ -12,21 +12,21 @@ const DataProgressBarSession = (props) => {
                     <li>
                         <span>{props.icon}</span>
                     
-                        <progress id="file" max="100" value={props.maximumValueEmotion * 100}>{props.maximumValueEmotion * 100} % </progress>
+                        <progress id="file" max="100" value={props.valueEmotion * 100}>{props.valueEmotion * 100} % </progress>
                     </li>
                 
-                    <li>
+                    {/* <li>
                         <span>{props.icon}</span>
                         
-                        <progress id="file" max="100" value={props.intermediaryValueEmotion * 100}>{props.intermediaryValueEmotion * 100} % </progress>
+                        <progress id="file" max="100" value={props.intermediaryvalueEmotion * 100}>{props.intermediaryvalueEmotion * 100} % </progress>
                     </li>
                 
                     <li>
                         <span>{props.icon}</span>
                     
-                        <progress id="file" max="100" value={props.minimumValueEmotion * 100}>{props.minimumValueEmotion * 100} %</progress>
-                    </li>
-                </ol>
+                        <progress id="file" max="100" value={props.minimumvalueEmotion * 100}>{props.minimumvalueEmotion * 100} %</progress>
+                    </li> */}
+                </ol> 
             </div>
         </div>
     );

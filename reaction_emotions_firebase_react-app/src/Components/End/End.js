@@ -1,9 +1,66 @@
 import React from 'react';
 
+import { useState } from 'react';
+
+import db from '../../config';
+
+import { doc, 
+         getDoc } from "firebase/firestore"; 
+
 import DataProgressBarSession from '../DataProgressBarSession/DataProgressBarSession';
 import Button from '../Button/Button';
 
+import { useEffect } from 'react';
+
 const End = () => {
+
+    const [filmTitle, setFilmTitle] = useState ();
+
+    const [valueEmotion, setValueEmotion] = useState ();
+
+    const [nameEmotion, setNameEmotion] = useState ();
+
+    const icons = {
+
+        neutral: "😶",
+        happy: "😄",
+        sad: "😞",
+        angry: "🤬",
+        fearful: "😖",
+        disgusted: "🤢",
+        surprised: "😲"
+    };
+
+    useEffect(() => {
+
+        getDocs();
+
+    }, []);
+
+    const getDocs = async () => {
+
+        try {
+            
+            const querySnapshot = await getDoc(doc(db, "filmName", "Extrait : Alien, le huitième passager"));
+
+            setFilmTitle(querySnapshot['_document']['data']['value']['mapValue']['fields']['title']['stringValue']);
+            
+            setNameEmotion(querySnapshot['_document']['data']['value']['mapValue']['fields']['expression']['stringValue']);
+            
+            setValueEmotion( querySnapshot['_document']['data']['value']['mapValue']['fields']['probability']['doubleValue']);
+        
+        } catch (error) {
+        
+            console.log(error);
+        }
+    };
+
+    const getIconName = (nameEmotion) => {
+        
+            return icons[nameEmotion];
+    };
+
+    console.log(filmTitle);
 
     return (
 
@@ -13,7 +70,9 @@ const End = () => {
                 &#128552; : 8'25" / &#128533; : 4'48" / &#128512; : 2'12"
             </p>
             
-            <DataProgressBarSession />
+            <DataProgressBarSession title={filmTitle} 
+                                    valueEmotion={valueEmotion} 
+                                    icon={getIconName(nameEmotion)} />
 
             <p className="text-center">
                 <Button link="/Data" text="Voir les données consolidées"/>

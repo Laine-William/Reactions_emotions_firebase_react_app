@@ -10,7 +10,9 @@ const SessionEnd = () => {
 
     <div className="site-wrapper">
         <Header />
+
         <End />
+        
         <Footer />
     </div>
   );
